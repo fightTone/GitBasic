@@ -381,33 +381,33 @@ experiment/new-design         # Experimental work
 
 ### Branch Lifecycle Management
 ```mermaid
-stateDiagram-v2
-    [*] --> Planning: 📋 Feature Planning
-    Planning --> Development: Create Branch
+graph TD
+    A[📋 Feature Planning] --> B[Create Branch]
+    B --> C[💻 Coding]
+    C --> D[🧪 Local Testing]
+    D --> E{Tests Pass?}
+    E -->|🐛 Bugs Found| C
+    E -->|✅ Tests Pass| F[📝 Pull Request]
     
-    state Development {
-        [*] --> Coding
-        Coding --> LocalTesting
-        LocalTesting --> Coding: 🐛 Bugs Found
-        LocalTesting --> ReadyForReview: ✅ Tests Pass
-    }
+    F --> G[👀 Code Review]
+    G --> H{Approved?}
+    H -->|❌ Issues Found| I[🔄 Back to Dev]
+    I --> C
+    H -->|✅ Looks Good| J[🎉 Merge to Main]
     
-    Development --> CodeReview: 📝 Pull Request
+    J --> K[🚀 Auto Deploy]
+    K --> L[🧹 Delete Branch]
+    L --> M[✅ Complete]
     
-    state CodeReview {
-        [*] --> Reviewing
-        Reviewing --> ChangesRequested: ❌ Issues Found
-        ChangesRequested --> Development: 🔄 Back to Dev
-        Reviewing --> Approved: ✅ Looks Good
-    }
+    C --> N[❌ Feature Cancelled]
+    N --> O[🗑️ Abandon Branch]
     
-    CodeReview --> Merged: 🎉 Merge to Main
-    Merged --> Deployed: 🚀 Auto Deploy
-    Deployed --> Cleanup: 🧹 Delete Branch
-    Cleanup --> [*]
-    
-    Development --> Abandoned: ❌ Feature Cancelled
-    Abandoned --> [*]
+    style A fill:#E8F5E8
+    style J fill:#90EE90
+    style K fill:#87CEEB
+    style M fill:#90EE90
+    style N fill:#FFB3B3
+    style O fill:#FFB3B3
 ```
 
 ### Create and Work with Branches
@@ -434,28 +434,31 @@ git push -u origin feature/new-login-system
 
 ### Step-by-Step Feature Development
 ```mermaid
-gitgraph
-    commit id: "main: v1.0"
+graph TD
+    A[main: v1.0] --> B[🌿 feature/shopping-cart]
+    B --> C[Create cart component]
+    C --> D[Add item functionality]
+    D --> E[Add remove functionality]
+    E --> F[Add cart persistence]
+    F --> G[Write tests ✅]
     
-    branch feature/shopping-cart
-    checkout feature/shopping-cart
-    commit id: "Create cart component"
-    commit id: "Add item functionality"
-    commit id: "Add remove functionality"
-    commit id: "Add cart persistence"
-    commit id: "Write tests ✅"
+    A --> H[main: hotfix applied]
     
-    checkout main
-    commit id: "main: hotfix applied"
+    G --> I[Merge latest main]
+    H --> I
+    I --> J[Fix merge conflicts]
     
-    checkout feature/shopping-cart
-    merge main
-    commit id: "Merge latest main"
-    commit id: "Fix merge conflicts"
+    J --> K[Ready for merge]
+    H --> L[Merge shopping-cart]
+    K --> L
+    L --> M[main: v1.1 with cart ✅]
     
-    checkout main
-    merge feature/shopping-cart
-    commit id: "main: v1.1 with cart ✅"
+    style A fill:#90EE90
+    style H fill:#90EE90
+    style L fill:#90EE90
+    style M fill:#90EE90
+    style B fill:#E8F5E8
+    style G fill:#D4EDDA
 ```
 
 ### Real-World Example Commands
@@ -498,38 +501,50 @@ git push origin --delete feature/shopping-cart
 
 ### What NOT to Do ❌
 ```mermaid
-gitgraph
-    commit id: "main branch"
-    commit id: "Direct commit ❌"
-    commit id: "Another direct commit ❌"
-    commit id: "Broken code pushed ❌"
-    commit id: "Quick fix ❌"
-    commit id: "Still broken ❌"
+graph TD
+    A[main branch] --> B[Direct commit ❌]
+    B --> C[Another direct commit ❌]
+    C --> D[Broken code pushed ❌]
+    D --> E[Quick fix ❌]
+    E --> F[Still broken ❌]
+    
+    style A fill:#90EE90
+    style B fill:#FFB3B3
+    style C fill:#FFB3B3
+    style D fill:#FF6B6B
+    style E fill:#FFB3B3
+    style F fill:#FF6B6B
 ```
 
 ### What TO Do ✅
 ```mermaid
-gitgraph
-    commit id: "Clean main ✅"
+graph TD
+    A[Clean main ✅] --> B[🌿 feature/payment]
+    B --> C[Work in progress]
+    C --> D[Feature complete]
+    D --> E[Tests passing ✅]
     
-    branch feature/payment
-    checkout feature/payment
-    commit id: "Work in progress"
-    commit id: "Feature complete"
-    commit id: "Tests passing ✅"
+    A --> F[Merge payment feature]
+    E --> F
+    F --> G[Main still clean ✅]
     
-    checkout main
-    merge feature/payment
-    commit id: "Main still clean ✅"
+    G --> H[🌿 feature/reviews]
+    H --> I[Add review system]
+    I --> J[All tests pass ✅]
     
-    branch feature/reviews
-    checkout feature/reviews
-    commit id: "Add review system"
-    commit id: "All tests pass ✅"
+    G --> K[Merge reviews feature]
+    J --> K
+    K --> L[Production ready ✅]
     
-    checkout main
-    merge feature/reviews
-    commit id: "Production ready ✅"
+    style A fill:#90EE90
+    style F fill:#90EE90
+    style G fill:#90EE90
+    style K fill:#90EE90
+    style L fill:#90EE90
+    style B fill:#E8F5E8
+    style H fill:#E8F5E8
+    style E fill:#D4EDDA
+    style J fill:#D4EDDA
 ```
 
 ## 8. Stash Changes
