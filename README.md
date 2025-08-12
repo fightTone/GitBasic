@@ -149,10 +149,10 @@ graph TD
     
     N --> O[🌐 Deploy to Production]
     
-    style N fill:#90EE90
-    style O fill:#87CEEB
-    style G fill:#F0E68C
-    style K fill:#E1D5E7
+    style N fill:#90EE90,color:#000000
+    style O fill:#87CEEB,color:#000000
+    style G fill:#F0E68C,color:#000000
+    style K fill:#E1D5E7,color:#000000
 ```
 
 ### Branch Hierarchy & Flow
@@ -182,9 +182,9 @@ graph LR
     E --> A
     F -.-> G[❌ Discarded<br/>or merged later]
     
-    style A fill:#90EE90
-    style E fill:#FFB3B3
-    style F fill:#F0E68C
+    style A fill:#90EE90,color:#000000
+    style E fill:#FFB3B3,color:#000000
+    style F fill:#F0E68C,color:#000000
 ```
 
 ### Basic Branching Concept
@@ -203,9 +203,9 @@ graph TD
     H --> I
     I --> J[Deploy v1.1]
     
-    style D fill:#E8F5E8
-    style I fill:#90EE90
-    style J fill:#87CEEB
+    style D fill:#E8F5E8,color:#000000
+    style I fill:#90EE90,color:#000000
+    style J fill:#87CEEB,color:#000000
 ```
 
 ### Best Practice Workflow
@@ -232,15 +232,15 @@ graph TD
     L --> M
     M --> N[Still working ✅]
     
-    style A fill:#90EE90
-    style B fill:#90EE90
-    style K fill:#90EE90
-    style L fill:#90EE90
-    style M fill:#90EE90
-    style N fill:#90EE90
-    style C fill:#E8F5E8
-    style F fill:#E8F5E8
-    style H fill:#FFF8DC
+    style A fill:#90EE90,color:#000000
+    style B fill:#90EE90,color:#000000
+    style K fill:#90EE90,color:#000000
+    style L fill:#90EE90,color:#000000
+    style M fill:#90EE90,color:#000000
+    style N fill:#90EE90,color:#000000
+    style C fill:#E8F5E8,color:#000000
+    style F fill:#E8F5E8,color:#000000
+    style H fill:#FFF8DC,color:#000000
 ```
 
 ### Team Collaboration Architecture
@@ -297,9 +297,9 @@ graph TB
     I[🤖 CI/CD Pipeline] --> E
     J[✅ Manual Approval] --> F
     
-    style D fill:#90EE90
-    style F fill:#87CEEB
-    style E fill:#F0E68C
+    style D fill:#90EE90,color:#000000
+    style F fill:#87CEEB,color:#000000
+    style E fill:#F0E68C,color:#000000
 ```
 
 ### The Golden Rules
@@ -363,12 +363,12 @@ graph TD
     
     A --> T[🚀 Automatic Deployment]
     
-    style A fill:#90EE90,stroke:#333,stroke-width:3px
-    style G fill:#FFB3B3
-    style H fill:#FFB3B3
-    style I fill:#F0E68C
-    style J fill:#F0E68C
-    style T fill:#87CEEB
+    style A fill:#90EE90,stroke:#333,stroke-width:3px,color:#000000
+    style G fill:#FFB3B3,color:#000000
+    style H fill:#FFB3B3,color:#000000
+    style I fill:#F0E68C,color:#000000
+    style J fill:#F0E68C,color:#000000
+    style T fill:#87CEEB,color:#000000
 ```
 
 ### Branch Naming Conventions
@@ -402,12 +402,12 @@ graph TD
     C --> N[❌ Feature Cancelled]
     N --> O[🗑️ Abandon Branch]
     
-    style A fill:#E8F5E8
-    style J fill:#90EE90
-    style K fill:#87CEEB
-    style M fill:#90EE90
-    style N fill:#FFB3B3
-    style O fill:#FFB3B3
+    style A fill:#E8F5E8,color:#000000
+    style J fill:#90EE90,color:#000000
+    style K fill:#87CEEB,color:#000000
+    style M fill:#90EE90,color:#000000
+    style N fill:#FFB3B3,color:#000000
+    style O fill:#FFB3B3,color:#000000
 ```
 
 ### Create and Work with Branches
@@ -453,12 +453,12 @@ graph TD
     K --> L
     L --> M[main: v1.1 with cart ✅]
     
-    style A fill:#90EE90
-    style H fill:#90EE90
-    style L fill:#90EE90
-    style M fill:#90EE90
-    style B fill:#E8F5E8
-    style G fill:#D4EDDA
+    style A fill:#90EE90,color:#000000
+    style H fill:#90EE90,color:#000000
+    style L fill:#90EE90,color:#000000
+    style M fill:#90EE90,color:#000000
+    style B fill:#E8F5E8,color:#000000
+    style G fill:#D4EDDA,color:#000000
 ```
 
 ### Real-World Example Commands
@@ -508,12 +508,12 @@ graph TD
     D --> E[Quick fix ❌]
     E --> F[Still broken ❌]
     
-    style A fill:#90EE90
-    style B fill:#FFB3B3
-    style C fill:#FFB3B3
-    style D fill:#FF6B6B
-    style E fill:#FFB3B3
-    style F fill:#FF6B6B
+    style A fill:#90EE90,color:#000000
+    style B fill:#FFB3B3,color:#000000
+    style C fill:#FFB3B3,color:#000000
+    style D fill:#FF6B6B,color:#000000
+    style E fill:#FFB3B3,color:#000000
+    style F fill:#FF6B6B,color:#000000
 ```
 
 ### What TO Do ✅
@@ -536,15 +536,15 @@ graph TD
     J --> K
     K --> L[Production ready ✅]
     
-    style A fill:#90EE90
-    style F fill:#90EE90
-    style G fill:#90EE90
-    style K fill:#90EE90
-    style L fill:#90EE90
-    style B fill:#E8F5E8
-    style H fill:#E8F5E8
-    style E fill:#D4EDDA
-    style J fill:#D4EDDA
+    style A fill:#90EE90,color:#000000
+    style F fill:#90EE90,color:#000000
+    style G fill:#90EE90,color:#000000
+    style K fill:#90EE90,color:#000000
+    style L fill:#90EE90,color:#000000
+    style B fill:#E8F5E8,color:#000000
+    style H fill:#E8F5E8,color:#000000
+    style E fill:#D4EDDA,color:#000000
+    style J fill:#D4EDDA,color:#000000
 ```
 
 ## 8. Stash Changes
