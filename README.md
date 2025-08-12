@@ -189,52 +189,58 @@ graph LR
 
 ### Basic Branching Concept
 ```mermaid
-gitgraph
-    commit id: "Initial commit"
-    commit id: "Add basic structure"
-    branch feature/login
-    checkout feature/login
-    commit id: "Start login feature"
-    commit id: "Add login form"
-    commit id: "Add validation"
-    checkout main
-    commit id: "Fix typo in README"
-    checkout feature/login
-    commit id: "Complete login tests"
-    checkout main
-    merge feature/login
-    commit id: "Deploy v1.1"
+graph TD
+    A[Initial commit] --> B[Add basic structure]
+    B --> C[Fix typo in README]
+    
+    B --> D[🌿 feature/login branch]
+    D --> E[Start login feature]
+    E --> F[Add login form]
+    F --> G[Add validation]
+    G --> H[Complete login tests]
+    
+    C --> I[Merge feature/login]
+    H --> I
+    I --> J[Deploy v1.1]
+    
+    style D fill:#E8F5E8
+    style I fill:#90EE90
+    style J fill:#87CEEB
 ```
 
 ### Best Practice Workflow
 ```mermaid
-gitgraph
-    commit id: "Clean main branch"
-    commit id: "Working state ✅"
+graph TD
+    A[Clean main branch] --> B[Working state ✅]
     
-    branch feature/user-profile
-    checkout feature/user-profile
-    commit id: "Create profile page"
-    commit id: "Add profile editing"
+    B --> C[🌿 feature/user-profile]
+    C --> D[Create profile page]
+    D --> E[Add profile editing]
     
-    checkout main
-    branch feature/notifications
-    checkout feature/notifications
-    commit id: "Add notification system"
+    B --> F[🌿 feature/notifications]
+    F --> G[Add notification system]
     
-    checkout main
-    branch experiment/new-ui
-    checkout experiment/new-ui
-    commit id: "Try new design"
-    commit id: "Experiment with colors"
+    B --> H[🧪 experiment/new-ui]
+    H --> I[Try new design]
+    I --> J[Experiment with colors]
     
-    checkout main
-    merge feature/user-profile
-    commit id: "Main stays clean ✅"
+    E --> K[Merge user-profile]
+    B --> K
+    K --> L[Main stays clean ✅]
     
-    checkout main
-    merge feature/notifications
-    commit id: "Still working ✅"
+    G --> M[Merge notifications]
+    L --> M
+    M --> N[Still working ✅]
+    
+    style A fill:#90EE90
+    style B fill:#90EE90
+    style K fill:#90EE90
+    style L fill:#90EE90
+    style M fill:#90EE90
+    style N fill:#90EE90
+    style C fill:#E8F5E8
+    style F fill:#E8F5E8
+    style H fill:#FFF8DC
 ```
 
 ### Team Collaboration Architecture
